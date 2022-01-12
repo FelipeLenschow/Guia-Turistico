@@ -1,20 +1,22 @@
 void LerBotao() {
   Botao = analogRead(Button) / 100;
+//  lcd.setCursor(0, 1);
+//  lcd.print(Botao);
   if (lastBotao != Botao) {
     delay(30);
     if (Botao == analogRead(Button) / 100) {
       lastBotao = Botao;
       switch (Botao) {
-        case 29:
+        case 24:
           menu--;
           enter = 0;
           lcd.clear();
           break;
-        case 15:
+        case 12:
           enter++;;
           lcd.clear();
           break;
-        case 12:
+        case 10:
           menu++;
           enter = 0;
           lcd.clear();
@@ -55,7 +57,7 @@ void Menu () {
 
             switch (Botao) {
 
-              case 29:
+              case 24:
                 if (enter % 3 == 1)
                   menuK--;
                 else if (enter % 3 == 2)
@@ -74,10 +76,10 @@ void Menu () {
                   menu--;
                 break;
 
-              case 15:
+              case 12:
                 enter++;
                 break;
-              case 12:
+              case 10:
 
                 if (enter % 3 == 1)
                   menuK++;
@@ -129,7 +131,7 @@ void Menu () {
     case 2:
       lcd.setCursor(0, 0);
       lcd.print("Run Forrest, Run");
-      if (enter % 3){ 
+      if (enter % 3) {
         delay(800);
         Run();
       }
